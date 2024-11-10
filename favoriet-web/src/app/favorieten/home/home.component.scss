@@ -3,6 +3,9 @@
 }
 h1 {
   background: rgb(97, 122, 110);
+  .header {
+    padding: 15px;
+  }
   .totaal {
     border-radius: 100%;
     border: 1px solid lightblue;
@@ -11,6 +14,7 @@ h1 {
     font-size: 14px;
     &:hover {
       cursor: pointer;
+      background-color: rgb(125, 171, 186);
     }
   }
 }
