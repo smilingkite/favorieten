@@ -1,7 +1,24 @@
-h1 .totaal {
-  border-radius: 100%;
-  border: 1px solid lightblue;
+.home {
   background-color: lightblue;
-  padding: 5px;
-  font-size: 14px;
+}
+h1 {
+  background: rgb(97, 122, 110);
+  .totaal {
+    border-radius: 100%;
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    padding: 5px;
+    font-size: 14px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+td {
+  background-color: #e2e7e7;
+  &:hover {
+    cursor: pointer;
+    background-color: #d6eeee;
+  }
 }

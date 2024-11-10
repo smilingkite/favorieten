@@ -1,15 +1,17 @@
-<table>
-  <tr>
-    <th>productId</th>
-    <th>aantal</th>
-  </tr>
-  @for (favoriet of favorieten(); track favoriet) {
-    <tr class="table">
-      <td>{{ favoriet.productId }}</td>
-      <td>{{ favoriet.aantal }}</td>
-      <td (click)="eenMeer(favoriet)"><p class="plus">+</p></td>
-      <td (click)="eenMinder(favoriet)"><p class="min">-</p></td>
-      <td (click)="verwijder(favoriet)"><p class="delete">delete</p></td>
+<div class="favoriet">
+  <table>
+    <tr>
+      <th>productId</th>
+      <th>aantal</th>
     </tr>
-  }
-</table>
+    @for (favoriet of favorieten(); track favoriet) {
+      <tr class="table">
+        <td>{{ favoriet.productId }}</td>
+        <td>{{ favoriet.aantal }}</td>
+        <td (click)="eenMeer(favoriet)"><p class="plus">+</p></td>
+        <td (click)="eenMinder(favoriet)"><p class="min">-</p></td>
+        <td (click)="verwijder(favoriet)"><p class="delete">delete</p></td>
+      </tr>
+    }
+  </table>
+</div>

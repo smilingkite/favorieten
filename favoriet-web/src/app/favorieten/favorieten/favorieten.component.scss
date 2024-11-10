@@ -1,8 +1,22 @@
+.favoriet {
+  position: absolute;
+  background: rgb(169, 186, 178);
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding-left: 10px;
+  opacity: 1;
+  transition: opacity 51s;
+}
+
 p {
   margin: 0;
   padding: 0 5px;
   border-radius: 100%;
   border: 1px solid;
+  &:hover {
+    cursor: pointer;
+  }
   &.plus {
     border-color: lightblue;
     background-color: lightblue;

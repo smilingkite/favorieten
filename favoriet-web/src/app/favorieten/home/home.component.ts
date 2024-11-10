@@ -11,16 +11,27 @@ import { FavorietService } from '../favoriet.service';
 import { Favoriet } from '../favoriet';
 import { producten } from '../../producten';
 import { FavorietenComponent } from '../favorieten/favorieten.component';
+import { trigger, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [MatTableModule, FavorietenComponent],
+  animations: [
+    trigger('myInsertRemoveTrigger', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('100ms', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [animate('100ms', style({ opacity: 0 }))]),
+    ]),
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   displayColumns: String[] = ['name'];
+  showWidget: boolean = false;
   productenDataSource = new MatTableDataSource<Product>(producten);
 
   constructor(private FavorietService: FavorietService) {}
@@ -111,5 +122,9 @@ export class HomeComponent {
         },
       });
     }
+  }
+
+  clickTotaal() {
+    this.showWidget = !this.showWidget;
   }
 }

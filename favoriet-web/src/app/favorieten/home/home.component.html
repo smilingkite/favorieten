@@ -1,19 +1,31 @@
-<h1>
-  Favoriet fruit
-  <span class="totaal">{{ totaal() }}</span>
-</h1>
-<favorieten-widget
-  [favorieten]="favorieten()"
-  (eenMeerOut)="incrementFavoriet($event)"
-  (eenMinderOut)="decrementFavoriet($event)"
-  (verwijderOut)="verwijderFavoriet($event)"
-></favorieten-widget>
-<table mat-table [dataSource]="productenDataSource" class="mat-elevation-z8">
-  <ng-container matColumnDef="name">
-    <td mat-cell *matCellDef="let favoriet" (click)="maakFavoriet(favoriet.id)">
-      {{ favoriet.name }}
-    </td>
-  </ng-container>
+<div class="home">
+  <h1>
+    Favoriet fruit
+    <span class="totaal" (click)="clickTotaal()">{{ totaal() }}</span>
+  </h1>
 
-  <tr mat-row *matRowDef="let favoriet; columns: displayColumns"></tr>
-</table>
+  @if (showWidget) {
+    <favorieten-widget
+      @myInsertRemoveTrigger
+      class="insert-remove-container"
+      [favorieten]="favorieten()"
+      (eenMeerOut)="incrementFavoriet($event)"
+      (eenMinderOut)="decrementFavoriet($event)"
+      (verwijderOut)="verwijderFavoriet($event)"
+    ></favorieten-widget>
+  }
+
+  <table mat-table [dataSource]="productenDataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <td
+        mat-cell
+        *matCellDef="let favoriet"
+        (click)="maakFavoriet(favoriet.id)"
+      >
+        {{ favoriet.name }}
+      </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let favoriet; columns: displayColumns"></tr>
+  </table>
+</div>
