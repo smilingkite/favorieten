@@ -1,0 +1,24 @@
+p {
+  margin: 0;
+  padding: 0 5px;
+  border-radius: 100%;
+  border: 1px solid;
+  &.plus {
+    border-color: lightblue;
+    background-color: lightblue;
+  }
+
+  &.min {
+    border-color: pink;
+    background-color: pink;
+  }
+
+  &.delete {
+    border-color: lightcoral;
+    background-color: lightcoral;
+  }
+}
+
+tr.table:hover {
+  background-color: #d6eeee;
+}
